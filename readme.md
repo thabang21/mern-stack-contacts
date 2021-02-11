@@ -58,4 +58,10 @@ App security
 • Helmet is used to ensure security of this app
 
 ## Register page
-<img src="images/results2.PNG" height="100" width="100"> 
+<img src="images/results2.PNG" height="500" width="500"> 
+
+## Login page
+<img src="images/results1.PNG" height="500" width="500"> 
+
+## Home page
+<img src="images/results0.PNG" height="500" width="500"> 
