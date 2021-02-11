@@ -57,6 +57,5 @@ App security
 
 • Helmet is used to ensure security of this app
 
-Github Link
-
-• 
+## Register page
+<img src="images/results2.PNG" height="100" width="100"> 
