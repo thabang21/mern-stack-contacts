@@ -7,7 +7,6 @@ The Objective of this application:
 
 • Users should be able to Register and login to contacts page
 • Users should be able to create,update and delele contacts
-• Users should be able to mark favourite contacts
 • User should be search contacts by name
 • Users should be able to logout of the app
 
@@ -25,7 +24,6 @@ details
 o Name, email and password
 • Search - user shall be able to create,update and delete data.
 Edit – clicking on update button will allow to update user contacts
-• User will be able to mark favourte contacts
 
 Lists of functional and non-functional requirements for the website application
 Functional requirements
@@ -47,16 +45,18 @@ Mentor to comment … as my stake holder
 #Note, before running the app replace the MONGODB_URL connect link from the .env file in order to connect to your database.
 
 1. To Run this app - install node_modules from the command line , use "npm install" on the server and then "cd client" and install the node modules on the client folder as well
-2. "npm run start" on server folder to run the server
-3. "npm run start" on client folder to run the the front end
-4. Once the app is loaded, click on register at the right hand corner of the screen to register your account.
-5. after registering you will be taken to the login screen where you can enter your email and password that you have chosen, the you will be logged in
-6. form the dashboard you can start creating and saving your contacts
-
-Deployment
-
-• App will be deployed to Heroku
+2. place your mongoDB connectuin string on .env txt
+3. place your mongoDB connectuin string on production.json 
+4. "npm run start" on server folder to run the server
+5. "npm run start" on client folder to run the the front end
+6. Once the app is loaded, click on register at the right hand corner of the screen to register your account.
+7. after registering you will be taken to the login screen where you can enter your email and password that you have chosen, the you will be logged in
+8. form the dashboard you can start creating and saving your contacts
 
 App security
 
 • Helmet is used to ensure security of this app
+
+Github Link
+
+• 

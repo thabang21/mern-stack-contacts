@@ -13,14 +13,7 @@ const guestSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  diet: {
-    type: String,
-    default: 'Non-Veg'
-  },
-  isconfirmed: {
-    type: Boolean,
-    default: false
-  }
+
 })
 
 module.exports = mongoose.model('guest', guestSchema)

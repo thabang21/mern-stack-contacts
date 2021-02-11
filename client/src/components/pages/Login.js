@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import AuthContext from '../../comtext/authContext/authContext'
+import AuthContext from '../../context/authContext/authContext'
 
 const Login = (props) => {
   const { login, isAuthencated, error, clearErrors } = useContext(AuthContext)

@@ -1,11 +1,10 @@
 import React, { Fragment, useContext } from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
-import AuthContext from '../../comtext/authContext/authContext'
-import GuestContext from '../../comtext/guestContext/guestContext'
+import AuthContext from '../../context/authContext/authContext'
+import GuestContext from '../../context/guestContext/guestContext'
 
-const Navbar = ({ title, icon }) => {
-  const { user, logout, isAuthencated, clearErrors } = useContext(AuthContext)
+const Navbar = () => {
+  const { logout, isAuthencated, clearErrors } = useContext(AuthContext)
   const { clearGuests } = useContext(GuestContext)
 
   const onLogout = () => {
@@ -15,9 +14,7 @@ const Navbar = ({ title, icon }) => {
   }
   const authLinks = (
     <Fragment>
-      <li>Hello, {user && user.name}</li>
-      <span className="sm-hide">|</span>
-      <li><a href='#!' onClick={onLogout}><span className="sm-hide">Logout</span> <i className="fas fa-sign-out-alt"></i></a></li>
+      <li><a href='#!' onClick={onLogout}><span className="sm-hide">Logout</span></a></li>
     </Fragment>
   );
 
@@ -26,7 +23,6 @@ const Navbar = ({ title, icon }) => {
       <li>
         <Link to='/register'>Register</Link>
       </li>
-      <span className="sm-hide">|</span>
       <li>
         <Link to='/login'>Login</Link>
       </li>
@@ -35,25 +31,14 @@ const Navbar = ({ title, icon }) => {
 
   return (
     <div className='navbar'>
-      <div className="logo">
+      <div>
         <h1>CONTACTS BOOK </h1>
-        <p>Consider your contacts saved <span>❤</span></p>
       </div>
       <ul>
         {isAuthencated ? authLinks : guestLinks}
       </ul>
     </div>
   )
-}
-
-Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
-  icon: PropTypes.string,
-}
-
-Navbar.defaultProps = {
-  title: 'Party RSVP',
-  icon: 'fas fa-glass-cheers'
 }
 
 export default Navbar

@@ -2,31 +2,13 @@ import React, { useReducer } from 'react'
 import axios from 'axios'
 import GuestContext from './guestContext';
 import guestReducer from './guestReducer';
-import {
-  TOGGLE_GUESTFILTER,
-  SEARCH_GUEST,
-  CLEAR_SEARCH,
-  REMOVE_GUEST,
-  ADD_GUEST,
-  EDIT_GUEST,
-  CLEAR_EDIT,
-  UPDATE_GUEST,
-  GET_GUESTS,
-  GUESTS_ERROR,
-  CLEAR_GUESTS
-} from '../types'
+import {REMOVE_GUEST,ADD_GUEST,EDIT_GUEST,CLEAR_EDIT,UPDATE_GUEST,GET_GUESTS,GUESTS_ERROR,CLEAR_GUESTS} from '../types'
 
 const GuestState = (props) => {
-  const intialState = {
-    guestFilter: false,
-    searchGuest: null,
-    editGuest: null,
-    guests: [],
-    error: null,
-  }
+  const intialState = {searchGuest: null,editGuest: null,guests: [],error: null,}
   const [state, dispatch] = useReducer(guestReducer, intialState)
 
-  // get guests
+  // get contacts
   const getGuests = async () => {
     try {
       const res = await axios.get('/guests')
@@ -41,9 +23,7 @@ const GuestState = (props) => {
       })
     }
   }
-
-  // Add Guest 
-
+  // Add contacts
   const addGuest = async (guest) => {
     const config = {
       'Content-Type': 'application/json'
@@ -62,7 +42,6 @@ const GuestState = (props) => {
     }
   }
 
-
   // remove guest 
   const removeGuest = async (id) => {
     try {
@@ -78,9 +57,7 @@ const GuestState = (props) => {
       })
     }
   }
-
   // update guest
-
   const update_Guest = async (guest) => {
     const config = {
       headers: {
@@ -103,26 +80,6 @@ const GuestState = (props) => {
     }
   }
 
-  //toggle isconfirmed
-  const toggleGuestFilter = () => {
-    dispatch({
-      type: TOGGLE_GUESTFILTER
-    })
-  }
-
-  // Search Guest
-  const search_Guest = (guest) => {
-    dispatch({
-      type: SEARCH_GUEST,
-      payload: guest
-    })
-  }
-  const clearSearchGuest = () => {
-    dispatch({
-      type: CLEAR_SEARCH
-    })
-  }
-
   // Edit Guest 
   const edit_Guest = (guest) => {
     dispatch({
@@ -143,7 +100,6 @@ const GuestState = (props) => {
   return (
     <GuestContext.Provider value={{
       guests: state.guests,
-      guestFilter: state.guestFilter,
       searchGuest: state.searchGuest,
       editGuest: state.editGuest,
       error: state.error,
@@ -153,9 +109,6 @@ const GuestState = (props) => {
       edit_Guest,
       clearEdit,
       update_Guest,
-      toggleGuestFilter,
-      search_Guest,
-      clearSearchGuest,
       getGuests,
       clearGuests
     }} >

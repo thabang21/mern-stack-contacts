@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://thabang:test1234@cluster0.ai2he.mongodb.net/test?retryWrites=true&w=majority",
+  "mongoURI": "place your mongoDB connection sting here",
   "JWT_SECRET": "secret"
 }

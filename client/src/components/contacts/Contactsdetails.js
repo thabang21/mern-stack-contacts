@@ -1,13 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import GuestItem from '../guests/GuestItem'
-import GuestContext from '../../comtext/guestContext/guestContext'
-import AuthContext from '../../comtext/authContext/authContext'
+import Contactsinfo from './Contactsinfo'
+import GuestContext from '../../context/guestContext/guestContext'
+import AuthContext from '../../context/authContext/authContext'
 
-
-
-const GuestsList = () => {
-
+const Contactsdetails = () => {
   const context = useContext(GuestContext)
   const { loading } = useContext(AuthContext)
   const { guests, guestFilter, searchGuest, getGuests } = context
@@ -26,15 +23,15 @@ const GuestsList = () => {
         {searchGuest !== null ? searchGuest.map(guest => (
           <CSSTransition key={guest._id} timeout={300}
             classNames='item' >
-            <GuestItem guest={guest} />
+            <Contactsinfo guest={guest} />
           </CSSTransition>)) :
           guests.filter(guest => !guestFilter || guest.isconfirmed).map(guest => (<CSSTransition key={guest._id} timeout={300}
             classNames='item'>
-            <GuestItem guest={guest} />
+            <Contactsinfo guest={guest} />
           </CSSTransition>)
           )}
       </TransitionGroup>
     </div>
   )
 }
-export default GuestsList
+export default Contactsdetails

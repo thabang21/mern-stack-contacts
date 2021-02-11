@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
-import GuestContext from '../../comtext/guestContext/guestContext'
+import GuestContext from '../../context/guestContext/guestContext'
 
-const GuestForm = () => {
+const ContactsForm = () => {
   const context = useContext(GuestContext)
   const { addGuest, editGuest, clearEdit, update_Guest } = context
 
@@ -12,7 +12,6 @@ const GuestForm = () => {
       setGuest({
         name: '',
         phone: '',
-        diet: 'family'
       })
     }
   }, [editGuest, context])
@@ -20,9 +19,8 @@ const GuestForm = () => {
   const [guest, setGuest] = useState({
     name: '',
     phone: '',
-    diet: 'family'
   })
-  const { name, phone, diet } = guest
+  const { name, phone} = guest
   const onchange = (e) => {
     setGuest({
       ...guest,
@@ -41,7 +39,6 @@ const GuestForm = () => {
     setGuest({
       name: '',
       phone: '',
-      diet: 'family',
     })
   }
   return (
@@ -51,22 +48,6 @@ const GuestForm = () => {
       <form onSubmit={onsubmit} >
         <input type="text" placeholder="Name" name="name" value={name} onChange={onchange} required />
         <input type="text" placeholder="Phone" name="phone" value={phone} onChange={onchange} required />
-        <p className="options-label">
-          Contact Type</p>
-        <div className="options">
-          <label class="container">family
-          <input type="radio" name="diet" value="family" onChange={onchange} checked={diet === "family"} />
-            <span class="checkmark"></span>
-          </label>
-          <label class="container">Friends
-          <input type="radio" name="diet" value="Friends" onChange={onchange} checked={diet === "Friends"} />
-            <span class="checkmark"></span>
-          </label>
-          <label class="container">Work
-          <input type="radio" name="diet" value="Work" onChange={onchange} checked={diet === "Work"} />
-            <span class="checkmark"></span>
-          </label>
-        </div>
         <input type="submit" value={editGuest !== null ? 'Update Contact' : 'Add Contact'} className="btn" />
         {editGuest !== null ? < input onClick={clearEdit} type="button" className="btn clear" value="Cancel" /> : null}
       </form>
@@ -75,7 +56,7 @@ const GuestForm = () => {
   )
 }
 
-export default GuestForm
+export default ContactsForm
 
 
 

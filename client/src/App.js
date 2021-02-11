@@ -5,8 +5,8 @@ import Navbar from './components/layouts/Navbar'
 import Home from './components/pages/Home'
 import Register from './components/pages/Register'
 import Login from './components/pages/Login'
-import GuestState from './comtext/guestContext/GuestState'
-import AuthState from './comtext/authContext/AuthState'
+import GuestState from './context/guestContext/GuestState'
+import AuthState from './context/authContext/AuthState'
 import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
 
